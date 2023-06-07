@@ -25,7 +25,7 @@ function GameSetup({ setScreen }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        const trivia = formatQuestions(JSON.parse(data));
+        const trivia = formatQuestions(data);
         setQuestions(trivia);
         setLoading(false);
         setScreen(screenMapping[screens.gameOptions].next());
