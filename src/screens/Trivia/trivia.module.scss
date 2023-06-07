@@ -14,7 +14,6 @@
   padding: 20px;
 
   &__questionContainer {
-    height: 100%;
     width: 90%;
 
     &_question {
@@ -29,9 +28,6 @@
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 1rem;
       padding: 0px;
-      div:last-child {
-        margin-bottom: 1rem;
-      }
 
       @media screen and (max-width: 500px) {
         grid-template-columns: repeat(1, 1fr);
@@ -41,6 +37,7 @@
     @media screen and (max-width: 768px) {
       width: 100%;
       font-size: 1.2rem;
+      height: 100%;
     }
   }
 
