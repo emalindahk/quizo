@@ -13,19 +13,21 @@ function GameSetup({ setScreen }) {
   const [loading, setLoading] = React.useState(false);
 
   const handleStart = async () => {
-    const res = await fetch("https://gpt-questions.onrender.com/questions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        difficulty: difficulty,
-        category: category.name,
-      }),
-    })
+    const res = await fetch(
+      `${process.env.REACT_APP_PUBLIC_API_URL}/questions`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          difficulty: difficulty,
+          category: category.name,
+        }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const trivia = formatQuestions(data);
         setQuestions(trivia);
         setLoading(false);

@@ -38,6 +38,7 @@ function FinalScore({ score, totalScore, setScreen }) {
         size="medium"
         color="primary"
         handleClick={() => startOver()}
+        style={{ marginBottom: "1rem" }}
       >
         Start Again
       </Button>
