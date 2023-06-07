@@ -17,7 +17,7 @@ export const screenMapping = {
     },
     [screens.trivia]: {
         title: 'Trivia',
-        next: () => null,
+        start: () => screens.home,
         back: () => screens.gameOptions,
     },
 }

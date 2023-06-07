@@ -1,13 +1,14 @@
 import React from "react";
 import Question from "./Question";
+import { TriviaContext } from "../../context";
 
-import triviaQuestions from "../../data/questions";
 import styles from "./trivia.module.scss";
 
 function Trivia({ setScreen }) {
+  const { questions } = React.useContext(TriviaContext);
   return (
     <div className={styles.container}>
-        <Question questions={triviaQuestions} />
+        <Question questions={questions} setscreen={setScreen} />
     </div>
   );
 }

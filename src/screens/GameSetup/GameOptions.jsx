@@ -2,18 +2,21 @@ import React from "react";
 
 import Card from "../../components/Card";
 import DifficultySelect from "./DifficultySelect";
+import { TriviaContext } from "../../context";
 
 import { categories } from "../../data/categories";
 import styles from "./gameSetup.module.scss";
 
-function GameOptions({ state, dispatch }) {
+function GameOptions() {
+  const { category, setCategory } = React.useContext(TriviaContext);
+
   const handleCategorySelect = (category) => {
-    dispatch({ type: "SETUP_CATEGORY", payload: category });
+    setCategory({...category, name: category.name, image: category.image});
   };
 
   return (
     <div className={styles.container__gameOptions}>
-      {!state.category.name ? (
+      {!category.name ? (
         <>
           <h3>Choose a category</h3>
           <div className={styles.container__collections__grid}>
@@ -30,12 +33,12 @@ function GameOptions({ state, dispatch }) {
       ) : (
         <div className={styles.container__difficulty}>
           <Card
-            title={state.category.name}
-            image={state.category.image}
+            title={category.name}
+            image={category.image}
             size="large"
-            onClick={() => dispatch({ type: "REMOVE_CATEGORY" })}
+            onClick={() => setCategory({})}
           />
-          <DifficultySelect state={state} dispatch={dispatch} />
+          <DifficultySelect/>
         </div>
       )}
     </div>

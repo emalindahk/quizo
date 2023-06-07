@@ -1,26 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./gameSetup.module.scss";
+import { TriviaContext } from "../../context";
 
 import Button from "../../components/Button";
 
 const difficultyLevels = ["Easy", "Medium", "Hard"];
 
-function DifficultySelect({ state, dispatch }) {
-  const handleDifficultySelect = (difficulty) => {
-    const newDifficulty = state.difficulty === difficulty ? "" : difficulty;
-    dispatch({ type: "SETUP_DIFFICULTY", payload: newDifficulty });
+function DifficultySelect() {
+  const { difficulty, setDifficulty } = useContext(TriviaContext);
+
+  const handleDifficultySelect = (diff) => {
+    const newDifficulty = difficulty === diff ? "" : diff;
+    setDifficulty(newDifficulty);
   };
+
   return (
     <div className={styles.container__difficulty__section}>
       <h3>Set Difficulty Level</h3>
       <div className={styles.container__difficulty__options}>
-        {state.difficulty ? (
+        {difficulty ? (
           <Button
-            color={`choice-${difficultyLevels.indexOf(state.difficulty) + 1}`}
-            level={state.difficulty}
+            color={`choice-${difficultyLevels.indexOf(difficulty) + 1}`}
+            level={difficulty}
             handleClick={handleDifficultySelect}
           >
-            {state.difficulty}
+            {difficulty}
           </Button>
         ) : (
           difficultyLevels.map((level, index) => (

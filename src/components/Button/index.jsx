@@ -7,7 +7,7 @@ const Button = React.forwardRef((props, ref) => {
     <div
       onClick={() => props.level ? props.handleClick(props.level) : props.handleClick()}
       ref={ref}
-      className={`${styles.btn} ${styles[props.color]}`}
+      className={`${styles.btn} ${styles[props.color]} ${styles[props.size]}`}
       role="button"
     >
       {props.children}

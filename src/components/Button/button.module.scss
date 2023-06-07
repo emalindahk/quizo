@@ -7,6 +7,7 @@
   margin: 0 0.5rem;
   color: white;
   font-size: 1rem;
+  font-weight: bold;
   user-select: none;
 
   &.primary {
@@ -15,8 +16,9 @@
   }
 
   &.secondary {
-    background-color: gray;
-    border-color: gray;
+    background-color: white;
+    border-color: white;
+    color: $primary-color;
   }
 
   &.choice-1 {
@@ -37,6 +39,18 @@
   &.choice-4 {
     background-color: $choice-4;
     border-color: $choice-4;
+  }
+
+  &.small {
+    width: 120px;
+  }
+
+  &.medium {
+    width: 200px;
+  }
+
+  &.large {
+    width: 300px;
   }
 
   &:hover {

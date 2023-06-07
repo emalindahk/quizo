@@ -49,6 +49,14 @@
     border-color: $choice-4;
   }
 
+  &.borderRed {
+    border: 5px solid red !important;
+  }
+  
+  &.borderGreen {
+    border: 5px solid green !important;
+  }
+
   &__overlay {
     background-color: black;
     width: 100%;
@@ -85,8 +93,9 @@
       font-size: 1rem;
     }
   }
-    @media (max-width: 400px) {
-      height: 120px;
-      font-size: 0.75rem;
-    }
+
+  @media (max-width: 400px) {
+    height: 120px;
+    font-size: 0.75rem;
+  }
 }
