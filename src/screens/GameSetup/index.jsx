@@ -25,6 +25,7 @@ function GameSetup({ setScreen }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         const trivia = formatQuestions(data);
         setQuestions(trivia);
         setLoading(false);
